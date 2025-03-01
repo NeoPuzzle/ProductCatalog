@@ -52,9 +52,9 @@ export function Footer() {
           <div>
             <h3 className="text-white text-lg font-bold mb-4">Contáctanos</h3>
             <ul className="space-y-2">
-              <li>Calle Principal #123, Ciudad</li>
-              <li>Teléfono: (123) 456-7890</li>
-              <li>Email: info@techstore.com</li>
+              <li>Av. La Paz #2580, Lima</li>
+              <li>Teléfono: (01) 456-7890</li>
+              <li>Email: info@jackstore.com</li>
               <li>Lunes - Viernes: 9:00 - 18:00</li>
               <li>Sábado: 10:00 - 14:00</li>
             </ul>

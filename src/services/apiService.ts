@@ -14,7 +14,7 @@ export async function fetchCategories() {
 
 export async function fetchProducts(
   page: number = 1,
-  limit: number = 10,
+  limit: number = 12,
   filters: { category?: string; brand?: string; search?: string } = {}
 ) {
   try {

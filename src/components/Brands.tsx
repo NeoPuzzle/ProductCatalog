@@ -1,11 +1,11 @@
 export function Brands() {
     const brands = [
-      { name: 'Apple', logo: '/api/placeholder/150/80' },
-      { name: 'Samsung', logo: '/api/placeholder/150/80' },
-      { name: 'Sony', logo: '/api/placeholder/150/80' },
-      { name: 'Google', logo: '/api/placeholder/150/80' },
-      { name: 'Microsoft', logo: '/api/placeholder/150/80' },
-      { name: 'Dell', logo: '/api/placeholder/150/80' },
+      { name: 'Apple', logo: '/images/apple.jpg' },
+      { name: 'Monark', logo: '/images/monark.jpg' },
+      { name: 'Nike', logo: '/images/nike.jpg' },
+      { name: 'Lego', logo: '/images/lego.jpg' },
+      { name: 'Microsoft', logo: '/images/microsoft.jpg' },
+      { name: 'Puma', logo: '/images/puma.jpg' },
     ];
   
     return (
