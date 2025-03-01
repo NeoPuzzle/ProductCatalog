@@ -1,0 +1,943 @@
+
+   export const categories=[
+    {
+      "id": "1",
+      "name": "Electrónica",
+      "slug": "electronica",
+      "image": "/images/electronics.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Hogar",
+      "slug": "hogar",
+      "image": "/images/home.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Deportes",
+      "slug": "deportes",
+      "image": "/images/sports.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Moda",
+      "slug": "moda",
+      "image": "/images/fashion.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Juguetes",
+      "slug": "juguetes",
+      "image": "/images/toys.jpg"
+    }
+  ]
+
+export const products = [
+    {
+      "id": "1",
+      "name": "Laptop Gamer Pro X",
+      "description": "Potente laptop para gaming con procesador de última generación.",
+      "price": 1200,
+      "discountPrice": 1100,
+      "category": "Electrónica",
+      "brand": "TechBrand",
+      "rating": 4.8,
+      "stock": 25,
+      "images": ["/images/laptop1.jpg", "/images/laptop2.jpg"],
+      "features": ["Pantalla 17 pulgadas", "16GB RAM", "1TB SSD"],
+      "specifications": { "Procesador": "Intel i9", "GPU": "RTX 4080" }
+    },
+    {
+      "id": "2",
+      "name": "Smartphone Ultra Z",
+      "description": "Teléfono inteligente con cámara de alta resolución.",
+      "price": 800,
+      "discountPrice": 750,
+      "category": "Electrónica",
+      "brand": "PhoneCorp",
+      "rating": 4.6,
+      "stock": 50,
+      "images": ["/images/smartphone1.jpg", "/images/smartphone2.jpg"],
+      "features": ["Pantalla AMOLED", "Cámara 108MP", "Carga rápida"],
+      "specifications": { "Batería": "5000mAh", "Resolución": "1440p" }
+    },
+    {
+      "id": "3",
+      "name": "Silla Ergonómica",
+      "description": "Silla ergonómica diseñada para largas horas de trabajo.",
+      "price": 150,
+      "category": "Hogar",
+      "brand": "ComfortLife",
+      "rating": 4.7,
+      "stock": 40,
+      "images": ["/images/chair1.jpg"],
+      "features": [
+        "Respaldo ajustable",
+        "Material transpirable",
+        "Ruedas reforzadas"
+      ],
+      "specifications": { "Material": "Malla", "Peso máximo": "120kg" }
+    },
+    {
+      "id": "4",
+      "name": "Cafetera Automática",
+      "description": "Cafetera automática con múltiples opciones de preparación.",
+      "price": 200,
+      "category": "Hogar",
+      "brand": "CoffeeMaster",
+      "rating": 4.5,
+      "stock": 30,
+      "images": ["/images/coffee-maker1.jpg"],
+      "features": [
+        "Espumador de leche",
+        "Programación automática",
+        "Filtro permanente"
+      ],
+      "specifications": { "Capacidad": "1.5L", "Potencia": "1200W" }
+    },
+    {
+      "id": "5",
+      "name": "Bicicleta Montaña X-Trail",
+      "description": "Bicicleta de montaña con suspensión doble y frenos de disco.",
+      "price": 500,
+      "category": "Deportes",
+      "brand": "SpeedRide",
+      "rating": 4.9,
+      "stock": 20,
+      "images": ["/images/bike1.jpg"],
+      "features": [
+        "Marco de aluminio",
+        "Suspensión doble",
+        "Frenos de disco hidráulicos"
+      ],
+      "specifications": {
+        "Tamaño de rueda": "29 pulgadas",
+        "Velocidades": "21"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Zapatillas Running Pro",
+      "description": "Zapatillas de running ultraligeras con tecnología de amortiguación avanzada.",
+      "price": 120,
+      "category": "Moda",
+      "brand": "SportMax",
+      "rating": 4.7,
+      "stock": 60,
+      "images": ["/images/shoes1.jpg"],
+      "features": ["Suela de gel", "Malla transpirable", "Peso ligero"],
+      "specifications": {
+        "Material": "Sintético",
+        "Tallas disponibles": "38-45"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Tablet Pro 10.5",
+      "description": "Tablet con pantalla Full HD y alto rendimiento.",
+      "price": 450,
+      "category": "Electrónica",
+      "brand": "TabTech",
+      "rating": 4.5,
+      "stock": 35,
+      "images": ["/images/tablet1.jpg"],
+      "features": [
+        "Pantalla táctil",
+        "Procesador Octa-Core",
+        "Batería de larga duración"
+      ],
+      "specifications": {
+        "Pantalla": "10.5 pulgadas",
+        "Resolución": "1920x1080"
+      }
+    },
+    {
+      "id": "8",
+      "name": "Smartwatch Fit X",
+      "description": "Reloj inteligente con múltiples funciones de salud y deporte.",
+      "price": 250,
+      "category": "Electrónica",
+      "brand": "WearTech",
+      "rating": 4.8,
+      "stock": 40,
+      "images": ["/images/smartwatch1.jpg"],
+      "features": [
+        "Monitor de ritmo cardíaco",
+        "GPS integrado",
+        "Resistente al agua"
+      ],
+      "specifications": {
+        "Batería": "10 días",
+        "Conectividad": "Bluetooth 5.0"
+      }
+    },
+    {
+      "id": "9",
+      "name": "Aspiradora Robot X200",
+      "description": "Aspiradora inteligente con sensores de navegación.",
+      "price": 300,
+      "category": "Hogar",
+      "brand": "CleanBot",
+      "rating": 4.6,
+      "stock": 25,
+      "images": ["/images/robot-vacuum1.jpg"],
+      "features": ["Control remoto", "Carga automática", "Modo silencioso"],
+      "specifications": { "Autonomía": "120 min", "Capacidad de polvo": "0.6L" }
+    },
+    {
+      "id": "10",
+      "name": "Mochila de Senderismo 50L",
+      "description": "Mochila espaciosa y resistente para aventuras al aire libre.",
+      "price": 90,
+      "category": "Deportes",
+      "brand": "OutdoorPro",
+      "rating": 4.7,
+      "stock": 55,
+      "images": ["/images/backpack1.jpg"],
+      "features": [
+        "Resistente al agua",
+        "Correas ajustables",
+        "Bolsillos múltiples"
+      ],
+      "specifications": {
+        "Capacidad": "50L",
+        "Material": "Poliéster resistente"
+      }
+    },
+    {
+      "id": "11",
+      "name": "Chaqueta Impermeable Trekking",
+      "description": "Chaqueta ligera y resistente al agua para trekking y senderismo.",
+      "price": 110,
+      "category": "Moda",
+      "brand": "MountainWear",
+      "rating": 4.5,
+      "stock": 40,
+      "images": ["/images/jacket1.jpg"],
+      "features": [
+        "Resistente al viento",
+        "Capucha ajustable",
+        "Material transpirable"
+      ],
+      "specifications": { "Material": "Nylon", "Tallas disponibles": "S-XXL" }
+    },
+    {
+      "id": "12",
+      "name": "Set de Bloques de Construcción",
+      "description": "Juego de bloques para estimular la creatividad de los niños.",
+      "price": 50,
+      "category": "Juguetes",
+      "brand": "KidPlay",
+      "rating": 4.8,
+      "stock": 100,
+      "images": ["/images/blocks1.jpg"],
+      "features": [
+        "Piezas de colores",
+        "Fácil de ensamblar",
+        "Material seguro"
+      ],
+      "specifications": {
+        "Edad recomendada": "3+ años",
+        "Cantidad de piezas": "150"
+      }
+    },
+    {
+      "id": "13",
+      "name": "Auriculares Bluetooth Noise Cancelling",
+      "description": "Auriculares inalámbricos con cancelación activa de ruido.",
+      "price": 180,
+      "category": "Electrónica",
+      "brand": "SoundMax",
+      "rating": 4.9,
+      "stock": 30,
+      "images": ["/images/headphones1.jpg"],
+      "features": ["Bluetooth 5.0", "Cancelación de ruido", "Carga rápida"],
+      "specifications": { "Autonomía": "30 horas", "Peso": "250g" }
+    },
+    {
+      "id": "14",
+      "name": "Cámara Deportiva 4K",
+      "description": "Cámara compacta para grabaciones en alta definición.",
+      "price": 220,
+      "category": "Electrónica",
+      "brand": "ActionCam",
+      "rating": 4.7,
+      "stock": 25,
+      "images": ["/images/actioncam1.jpg"],
+      "features": ["Sumergible", "Resolución 4K", "WiFi integrado"],
+      "specifications": { "Batería": "1200mAh", "Lente": "Gran angular" }
+    },
+    {
+      "id": "15",
+      "name": "Pelota de Baloncesto Pro",
+      "description": "Balón de baloncesto de alta calidad para partidos y entrenamiento.",
+      "price": 40,
+      "category": "Deportes",
+      "brand": "HoopStar",
+      "rating": 4.6,
+      "stock": 80,
+      "images": ["/images/basketball1.jpg"],
+      "features": [
+        "Superficie antideslizante",
+        "Material duradero",
+        "Tamaño oficial"
+      ],
+      "specifications": { "Tamaño": "7", "Material": "Cuero sintético" }
+    },
+    {
+      "id": "16",
+      "name": "Zapatillas Running Pro",
+      "description": "Zapatillas deportivas con amortiguación avanzada.",
+      "price": 120,
+      "category": "Deportes",
+      "brand": "RunFast",
+      "rating": 4.7,
+      "stock": 50,
+      "images": ["/images/running-shoes.jpg"],
+      "features": [
+        "Suela antideslizante",
+        "Material transpirable",
+        "Amortiguación premium"
+      ],
+      "specifications": { "Peso": "250g", "Tallas disponibles": "38-45" }
+    },
+    {
+      "id": "17",
+      "name": "Smart TV 55' 4K UHD",
+      "description": "Televisor inteligente con resolución 4K y HDR.",
+      "price": 650,
+      "category": "Electrónica",
+      "brand": "VisionTech",
+      "rating": 4.8,
+      "stock": 20,
+      "images": ["/images/smart-tv.jpg"],
+      "features": ["HDR10", "Asistente de voz", "WiFi integrado"],
+      "specifications": { "Tamaño": "55 pulgadas", "Resolución": "4K UHD" }
+    },
+    {
+      "id": "18",
+      "name": "Batidora de Mano 500W",
+      "description": "Batidora potente y versátil para la cocina.",
+      "price": 75,
+      "category": "Hogar",
+      "brand": "KitchenEase",
+      "rating": 4.6,
+      "stock": 60,
+      "images": ["/images/hand-mixer.jpg"],
+      "features": ["Velocidades ajustables", "Fácil de limpiar", "Ergonómica"],
+      "specifications": {
+        "Potencia": "500W",
+        "Accesorios": "Batidores y ganchos para masa"
+      }
+    },
+    {
+      "id": "19",
+      "name": "Set de Pesas Ajustables",
+      "description": "Pesas con ajuste de carga para entrenamiento en casa.",
+      "price": 180,
+      "category": "Deportes",
+      "brand": "FitGear",
+      "rating": 4.9,
+      "stock": 35,
+      "images": ["/images/dumbbells.jpg"],
+      "features": [
+        "Carga ajustable",
+        "Mango ergonómico",
+        "Material antideslizante"
+      ],
+      "specifications": { "Peso máximo": "50kg", "Material": "Hierro fundido" }
+    },
+    {
+      "id": "20",
+      "name": "Vestido Casual de Verano",
+      "description": "Vestido ligero y fresco para días soleados.",
+      "price": 55,
+      "category": "Moda",
+      "brand": "TrendyWear",
+      "rating": 4.5,
+      "stock": 70,
+      "images": ["/images/summer-dress.jpg"],
+      "features": ["Tela transpirable", "Diseño moderno", "Ajuste cómodo"],
+      "specifications": { "Material": "Algodón", "Tallas disponibles": "XS-XL" }
+    },
+    {
+      "id": "21",
+      "name": "Dron con Cámara 4K",
+      "description": "Dron profesional con cámara de alta definición.",
+      "price": 500,
+      "category": "Electrónica",
+      "brand": "SkyCapture",
+      "rating": 4.8,
+      "stock": 15,
+      "images": ["/images/drone.jpg"],
+      "features": [
+        "Control remoto",
+        "Estabilización avanzada",
+        "Grabación en 4K"
+      ],
+      "specifications": { "Autonomía": "30 min", "Alcance": "2 km" }
+    },
+    {
+      "id": "22",
+      "name": "Coche de Juguete a Control Remoto",
+      "description": "Auto a control remoto con alta velocidad y gran estabilidad.",
+      "price": 90,
+      "category": "Juguetes",
+      "brand": "SpeedyToys",
+      "rating": 4.7,
+      "stock": 45,
+      "images": ["/images/rc-car.jpg"],
+      "features": [
+        "Velocidad ajustable",
+        "Batería recargable",
+        "Control de largo alcance"
+      ],
+      "specifications": {
+        "Velocidad máxima": "30 km/h",
+        "Duración de batería": "40 min"
+      }
+    },
+    {
+      "id": "23",
+      "name": "Bicicleta de Montaña Pro",
+      "description": "Bicicleta robusta para terrenos difíciles.",
+      "price": 700,
+      "category": "Deportes",
+      "brand": "MountainX",
+      "rating": 4.9,
+      "stock": 10,
+      "images": ["/images/mountain-bike.jpg"],
+      "features": [
+        "Suspensión delantera",
+        "Marco de aluminio",
+        "Cambio de 21 velocidades"
+      ],
+      "specifications": { "Tamaño": "26 pulgadas", "Material": "Aluminio" }
+    },
+    {
+      "id": "24",
+      "name": "Audífonos Inalámbricos Noise Cancelling",
+      "description": "Audífonos con cancelación de ruido activa para una experiencia inmersiva.",
+      "price": 250,
+      "category": "Electrónica",
+      "brand": "SoundMax",
+      "rating": 4.8,
+      "stock": 40,
+      "images": ["/images/noise-cancelling-headphones.jpg"],
+      "features": [
+        "Cancelación de ruido activa",
+        "Bluetooth 5.0",
+        "Batería de 30 horas"
+      ],
+      "specifications": { "Autonomía": "30h", "Conectividad": "Bluetooth" }
+    },
+    {
+      "id": "25",
+      "name": "Robot Aspiradora Inteligente",
+      "description": "Aspiradora automática con sensores de navegación avanzada.",
+      "price": 300,
+      "category": "Hogar",
+      "brand": "CleanBot",
+      "rating": 4.7,
+      "stock": 25,
+      "images": ["/images/robot-vacuum.jpg"],
+      "features": ["Mapeo inteligente", "Control por app", "Carga automática"],
+      "specifications": { "Autonomía": "120 min", "Capacidad de polvo": "0.6L" }
+    },
+    {
+      "id": "26",
+      "name": "Chaqueta Impermeable Trekking",
+      "description": "Chaqueta ligera e impermeable ideal para trekking y senderismo.",
+      "price": 130,
+      "category": "Moda",
+      "brand": "OutdoorGear",
+      "rating": 4.6,
+      "stock": 55,
+      "images": ["/images/hiking-jacket.jpg"],
+      "features": [
+        "Resistente al agua",
+        "Cremallera reforzada",
+        "Bolsillos múltiples"
+      ],
+      "specifications": {
+        "Material": "Poliéster",
+        "Tallas disponibles": "S-XXL"
+      }
+    },
+    {
+      "id": "27",
+      "name": "Set de Bloques de Construcción Creativos",
+      "description": "Bloques de construcción para desarrollar creatividad en niños.",
+      "price": 45,
+      "category": "Juguetes",
+      "brand": "BuildFun",
+      "rating": 4.9,
+      "stock": 80,
+      "images": ["/images/building-blocks.jpg"],
+      "features": [
+        "500 piezas",
+        "Material no tóxico",
+        "Compatible con otras marcas"
+      ],
+      "specifications": {
+        "Edad recomendada": "3+ años",
+        "Material": "Plástico ABS"
+      }
+    },
+    {
+      "id": "28",
+      "name": "Mochila de Viaje Resistente al Agua",
+      "description": "Mochila espaciosa y duradera para aventuras y viajes largos.",
+      "price": 85,
+      "category": "Moda",
+      "brand": "TravelMaster",
+      "rating": 4.8,
+      "stock": 45,
+      "images": ["/images/travel-backpack.jpg"],
+      "features": [
+        "Impermeable",
+        "Bolsillos organizadores",
+        "Diseño ergonómico"
+      ],
+      "specifications": { "Capacidad": "40L", "Material": "Nylon reforzado" }
+    },
+    {
+      "id": "29",
+      "name": "Smartwatch Deportivo con GPS",
+      "description": "Reloj inteligente con seguimiento deportivo y GPS integrado.",
+      "price": 220,
+      "category": "Electrónica",
+      "brand": "FitTime",
+      "rating": 4.7,
+      "stock": 30,
+      "images": ["/images/smartwatch.jpg"],
+      "features": [
+        "GPS integrado",
+        "Monitoreo de ritmo cardíaco",
+        "Resistente al agua"
+      ],
+      "specifications": {
+        "Duración de batería": "7 días",
+        "Compatibilidad": "iOS y Android"
+      }
+    },
+    {
+      "id": "30",
+      "name": "Colchón Ortopédico Premium",
+      "description": "Colchón con soporte ortopédico para un descanso saludable.",
+      "price": 500,
+      "category": "Hogar",
+      "brand": "DreamRest",
+      "rating": 4.9,
+      "stock": 20,
+      "images": ["/images/orthopedic-mattress.jpg"],
+      "features": ["Soporte ergonómico", "Espuma de memoria", "Hipoalergénico"],
+      "specifications": {
+        "Tamaño": "Queen",
+        "Material": "Espuma viscoelástica"
+      }
+    },
+    {
+      "id": "31",
+      "name": "Juego de Mesa Estrategia Familiar",
+      "description": "Divertido juego de mesa para toda la familia con estrategia y cooperación.",
+      "price": 60,
+      "category": "Juguetes",
+      "brand": "TableFun",
+      "rating": 4.8,
+      "stock": 50,
+      "images": ["/images/board-game.jpg"],
+      "features": [
+        "De 2 a 6 jugadores",
+        "Fácil de aprender",
+        "Ideal para todas las edades"
+      ],
+      "specifications": {
+        "Edad recomendada": "8+ años",
+        "Duración del juego": "45-60 min"
+      }
+    },
+    {
+      "id": "32",
+      "name": "Teclado Mecánico Retroiluminado",
+      "description": "Teclado mecánico con iluminación RGB y switches táctiles.",
+      "price": 90,
+      "category": "Electrónica",
+      "brand": "KeyMaster",
+      "rating": 4.7,
+      "stock": 60,
+      "images": ["/images/mechanical-keyboard.jpg"],
+      "features": [
+        "Iluminación RGB",
+        "Switches mecánicos",
+        "Estructura de aluminio"
+      ],
+      "specifications": { "Conectividad": "USB", "Tipo de switch": "Red" }
+    },
+    {
+      "id": "33",
+      "name": "Freidora de Aire Digital",
+      "description": "Freidora de aire con pantalla táctil y múltiples configuraciones de cocción.",
+      "price": 180,
+      "category": "Hogar",
+      "brand": "CookMaster",
+      "rating": 4.8,
+      "stock": 35,
+      "images": ["/images/air-fryer.jpg"],
+      "features": [
+        "Pantalla táctil",
+        "Capacidad de 5L",
+        "Bajo consumo energético"
+      ],
+      "specifications": { "Capacidad": "5L", "Potencia": "1500W" }
+    },
+    {
+      "id": "34",
+      "name": "Bicicleta de Montaña Profesional",
+      "description": "Bicicleta con suspensión doble y marco de aluminio ligero.",
+      "price": 600,
+      "category": "Deportes",
+      "brand": "MountainRide",
+      "rating": 4.9,
+      "stock": 15,
+      "images": ["/images/mountain-bike.jpg"],
+      "features": ["Suspensión doble", "Frenos de disco", "21 velocidades"],
+      "specifications": {
+        "Material del marco": "Aluminio",
+        "Tamaño de rueda": "29"
+      }
+    },
+    {
+      "id": "35",
+      "name": "Zapatillas Deportivas Ultraligeras",
+      "description": "Zapatillas deportivas con suela amortiguada y diseño transpirable.",
+      "price": 110,
+      "category": "Moda",
+      "brand": "RunMax",
+      "rating": 4.6,
+      "stock": 50,
+      "images": ["/images/sport-shoes.jpg"],
+      "features": [
+        "Suela antideslizante",
+        "Material transpirable",
+        "Diseño ergonómico"
+      ],
+      "specifications": {
+        "Tallas disponibles": "38-45",
+        "Material": "Malla y goma"
+      }
+    },
+    {
+      "id": "36",
+      "name": "Dron con Cámara 4K",
+      "description": "Dron con estabilizador y transmisión en vivo en 4K.",
+      "price": 500,
+      "category": "Electrónica",
+      "brand": "SkyFly",
+      "rating": 4.8,
+      "stock": 20,
+      "images": ["/images/drone-4k.jpg"],
+      "features": ["Cámara 4K", "Control remoto", "Modo de seguimiento"],
+      "specifications": { "Autonomía": "30 min", "Rango de vuelo": "500m" }
+    },
+    {
+      "id": "37",
+      "name": "Juego de Ollas Antiadherentes",
+      "description": "Set de ollas con revestimiento antiadherente y tapas de vidrio templado.",
+      "price": 140,
+      "category": "Hogar",
+      "brand": "ChefMaster",
+      "rating": 4.7,
+      "stock": 40,
+      "images": ["/images/cookware-set.jpg"],
+      "features": [
+        "Antiadherente",
+        "Compatibilidad con inducción",
+        "Mangos ergonómicos"
+      ],
+      "specifications": {
+        "Cantidad de piezas": "10",
+        "Material": "Aluminio reforzado"
+      }
+    },
+    {
+      "id": "38",
+      "name": "Pelota de Fútbol Profesional",
+      "description": "Pelota de fútbol con tecnología de control aerodinámico y costuras reforzadas.",
+      "price": 50,
+      "category": "Deportes",
+      "brand": "ProBall",
+      "rating": 4.9,
+      "stock": 70,
+      "images": ["/images/soccer-ball.jpg"],
+      "features": [
+        "Costuras reforzadas",
+        "Superficie texturizada",
+        "Aprobada por la FIFA"
+      ],
+      "specifications": { "Tamaño": "5", "Material": "Poliuretano" }
+    },
+    {
+      "id": "39",
+      "name": "Camisa de Algodón Premium",
+      "description": "Camisa elegante de algodón con corte slim fit y tacto suave.",
+      "price": 75,
+      "category": "Moda",
+      "brand": "EleganceWear",
+      "rating": 4.6,
+      "stock": 65,
+      "images": ["/images/cotton-shirt.jpg"],
+      "features": ["Algodón 100%", "Corte slim fit", "Variedad de colores"],
+      "specifications": { "Material": "Algodón", "Tallas disponibles": "S-XXL" }
+    },
+    {
+      "id": "40",
+      "name": "Set de Figuras de Acción",
+      "description": "Figuras de acción articuladas de personajes populares.",
+      "price": 90,
+      "category": "Juguetes",
+      "brand": "HeroToys",
+      "rating": 4.8,
+      "stock": 55,
+      "images": ["/images/action-figures.jpg"],
+      "features": [
+        "Figuras articuladas",
+        "Material resistente",
+        "Colección exclusiva"
+      ],
+      "specifications": { "Altura promedio": "15 cm", "Material": "PVC" }
+    },
+    {
+      "id": "41",
+      "name": "Auriculares Inalámbricos Bluetooth",
+      "description": "Auriculares con cancelación de ruido y batería de larga duración.",
+      "price": 120,
+      "category": "Electrónica",
+      "brand": "SoundTech",
+      "rating": 4.7,
+      "stock": 80,
+      "images": ["/images/wireless-headphones.jpg"],
+      "features": ["Bluetooth 5.0", "Cancelación de ruido", "Carga rápida"],
+      "specifications": {
+        "Duración de batería": "30h",
+        "Conectividad": "Bluetooth"
+      }
+    },
+    {
+      "id": "42",
+      "name": "Robot Aspiradora Inteligente",
+      "description": "Aspiradora robótica con mapeo inteligente y control por app.",
+      "price": 300,
+      "category": "Hogar",
+      "brand": "CleanBot",
+      "rating": 4.8,
+      "stock": 25,
+      "images": ["/images/robot-vacuum.jpg"],
+      "features": [
+        "Mapeo inteligente",
+        "Control remoto",
+        "Autonomía de 120 min"
+      ],
+      "specifications": { "Capacidad de depósito": "600ml", "Ruido": "<55dB" }
+    },
+    {
+      "id": "43",
+      "name": "Mancuernas Ajustables 20kg",
+      "description": "Juego de mancuernas ajustables con discos intercambiables.",
+      "price": 150,
+      "category": "Deportes",
+      "brand": "FitGear",
+      "rating": 4.9,
+      "stock": 40,
+      "images": ["/images/adjustable-dumbbells.jpg"],
+      "features": [
+        "Peso ajustable",
+        "Mangos antideslizantes",
+        "Material de alta resistencia"
+      ],
+      "specifications": { "Peso máximo": "20kg", "Material": "Acero y goma" }
+    },
+    {
+      "id": "44",
+      "name": "Chaqueta Impermeable Unisex",
+      "description": "Chaqueta ligera e impermeable con forro térmico.",
+      "price": 85,
+      "category": "Moda",
+      "brand": "WeatherWear",
+      "rating": 4.6,
+      "stock": 70,
+      "images": ["/images/waterproof-jacket.jpg"],
+      "features": [
+        "Material impermeable",
+        "Forro térmico",
+        "Capucha ajustable"
+      ],
+      "specifications": {
+        "Material": "Poliéster",
+        "Tallas disponibles": "S-XXL"
+      }
+    },
+    {
+      "id": "45",
+      "name": "Set de Bloques de Construcción",
+      "description": "Juego de bloques de construcción compatible con otras marcas populares.",
+      "price": 60,
+      "category": "Juguetes",
+      "brand": "BuildMaster",
+      "rating": 4.9,
+      "stock": 90,
+      "images": ["/images/building-blocks.jpg"],
+      "features": [
+        "Compatible con otras marcas",
+        "Material resistente",
+        "Incluye figuras y accesorios"
+      ],
+      "specifications": {
+        "Cantidad de piezas": "500",
+        "Material": "Plástico ABS"
+      }
+    },
+    {
+      "id": "46",
+      "name": "Monitor Curvo 27 pulgadas",
+      "description": "Monitor curvo con resolución Full HD y tasa de refresco de 144Hz.",
+      "price": 280,
+      "category": "Electrónica",
+      "brand": "VisionTech",
+      "rating": 4.8,
+      "stock": 30,
+      "images": ["/images/curved-monitor.jpg"],
+      "features": ["Pantalla curva", "144Hz", "Bajo tiempo de respuesta"],
+      "specifications": { "Resolución": "Full HD", "Tamaño": "27 pulgadas" }
+    },
+    {
+      "id": "47",
+      "name": "Batidora de Mano 5 Velocidades",
+      "description": "Batidora con accesorios intercambiables y diseño ergonómico.",
+      "price": 90,
+      "category": "Hogar",
+      "brand": "MixMaster",
+      "rating": 4.7,
+      "stock": 50,
+      "images": ["/images/hand-mixer.jpg"],
+      "features": [
+        "5 velocidades",
+        "Accesorios intercambiables",
+        "Fácil limpieza"
+      ],
+      "specifications": { "Potencia": "300W", "Peso": "1.2kg" }
+    },
+    {
+      "id": "48",
+      "name": "Pesas Rusas 12kg",
+      "description": "Pesas rusas con revestimiento de vinilo y agarre ergonómico.",
+      "price": 80,
+      "category": "Deportes",
+      "brand": "PowerLift",
+      "rating": 4.9,
+      "stock": 45,
+      "images": ["/images/kettlebell.jpg"],
+      "features": [
+        "Revestimiento de vinilo",
+        "Agarre antideslizante",
+        "Diseño compacto"
+      ],
+      "specifications": { "Peso": "12kg", "Material": "Hierro fundido" }
+    },
+    {
+      "id": "49",
+      "name": "Jeans Slim Fit Hombre",
+      "description": "Jeans de corte slim fit con tejido elástico para mayor comodidad.",
+      "price": 70,
+      "category": "Moda",
+      "brand": "DenimPro",
+      "rating": 4.7,
+      "stock": 60,
+      "images": ["/images/slim-fit-jeans.jpg"],
+      "features": ["Tela elástica", "Diseño moderno", "Variedad de colores"],
+      "specifications": { "Material": "Algodón y elastano", "Tallas": "28-42" }
+    },
+    {
+      "id": "50",
+      "name": "Muñeca Interactiva",
+      "description": "Muñeca que habla y responde a comandos de voz.",
+      "price": 55,
+      "category": "Juguetes",
+      "brand": "PlayTime",
+      "rating": 4.8,
+      "stock": 75,
+      "images": ["/images/talking-doll.jpg"],
+      "features": [
+        "Responde a comandos",
+        "Ropa intercambiable",
+        "Expresiones faciales"
+      ],
+      "specifications": { "Altura": "40 cm", "Material": "Vinilo" }
+    }
+  ]
+
+
+  export const newProducts = [
+    {
+      "id": "1",
+      "name": "Laptop Gamer Pro X",
+      "description": "Potente laptop para gaming con procesador de última generación.",
+      "price": 1200,
+      "discountPrice": 1100,
+      "category": "Electrónica",
+      "brand": "TechBrand",
+      "rating": 4.8,
+      "stock": 25,
+      "images": ["/images/laptop1.jpg", "/images/laptop2.jpg"],
+      "features": ["Pantalla 17 pulgadas", "16GB RAM", "1TB SSD"],
+      "specifications": { "Procesador": "Intel i9", "GPU": "RTX 4080" }
+    },
+    {
+      "id": "2",
+      "name": "Smartphone Ultra Z",
+      "description": "Teléfono inteligente con cámara de alta resolución.",
+      "price": 800,
+      "discountPrice": 750,
+      "category": "Electrónica",
+      "brand": "PhoneCorp",
+      "rating": 4.6,
+      "stock": 50,
+      "images": ["/images/smartphone1.jpg", "/images/smartphone2.jpg"],
+      "features": ["Pantalla AMOLED", "Cámara 108MP", "Carga rápida"],
+      "specifications": { "Batería": "5000mAh", "Resolución": "1440p" }
+    },
+    {
+      "id": "3",
+      "name": "Silla Ergonómica",
+      "description": "Silla ergonómica diseñada para largas horas de trabajo.",
+      "price": 150,
+      "category": "Hogar",
+      "brand": "ComfortLife",
+      "rating": 4.7,
+      "stock": 40,
+      "images": ["/images/chair1.jpg"],
+      "features": [
+        "Respaldo ajustable",
+        "Material transpirable",
+        "Ruedas reforzadas"
+      ],
+      "specifications": { "Material": "Malla", "Peso máximo": "120kg" }
+    },
+    {
+      "id": "4",
+      "name": "Cafetera Automática",
+      "description": "Cafetera automática con múltiples opciones de preparación.",
+      "price": 200,
+      "category": "Hogar",
+      "brand": "CoffeeMaster",
+      "rating": 4.5,
+      "stock": 30,
+      "images": ["/images/coffee-maker1.jpg"],
+      "features": [
+        "Espumador de leche",
+        "Programación automática",
+        "Filtro permanente"
+      ],
+      "specifications": { "Capacidad": "1.5L", "Potencia": "1200W" }
+    }
+  ]
