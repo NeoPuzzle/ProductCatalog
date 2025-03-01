@@ -1,7 +1,13 @@
-import { newProducts } from "@/mocks/db";
+'use client';
+
+import {  Product } from "@/types/product";
 import { ProductCard } from "./ProductCard";
+import { fetchNewProducts } from "@/services/apiService";
+import { useFetch } from "./hooks/useFetch";
 
 export function NewArrivals() {
+
+  const { data: newProducts, loading, error } = useFetch<Product[]>(fetchNewProducts);
     return (
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
@@ -10,7 +16,7 @@ export function NewArrivals() {
             <p className="text-gray-600">Los últimos productos que acaban de llegar</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {newProducts.map(product => (
+            {newProducts?.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

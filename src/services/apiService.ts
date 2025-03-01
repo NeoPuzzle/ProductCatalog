@@ -44,3 +44,14 @@ export async function fetchProductById(productId: string) {
     throw new Error("Failed to fetch product");
   }
 }
+
+
+export async function fetchNewProducts() {
+    try { 
+      const response = await axios.get(`${API_URL}/newProducts`);
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      throw new Error("Failed to fetch products");
+    }
+  }
