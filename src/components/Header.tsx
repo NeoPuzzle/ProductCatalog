@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { useState } from "react";
 import { Search, ShoppingCart, User, Menu, X } from "lucide-react";
@@ -21,34 +23,40 @@ export function Header() {
               )}
             </button>
             <Link href="/" className="text-2xl font-bold">
-              TechStore
+              JackStore
             </Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              href="/categories/smartphones"
+              href="/categories/electronica"
               className="hover:text-blue-400 transition"
             >
-              Smartphones
+              Electronica
             </Link>
             <Link
-              href="/categories/laptops"
+              href="/categories/hogar"
               className="hover:text-blue-400 transition"
             >
-              Laptops
+              Hogar
             </Link>
             <Link
-              href="/categories/audio"
+              href="/categories/deportes"
               className="hover:text-blue-400 transition"
             >
-              Audio
+              Deportes
             </Link>
             <Link
-              href="/categories/accessories"
+              href="/categories/moda"
               className="hover:text-blue-400 transition"
             >
-              Accesorios
+              Moda
+            </Link>
+            <Link
+              href="/categories/juguetes"
+              className="hover:text-blue-400 transition"
+            >
+              Juguetes
             </Link>
             <Link href="/offers" className="hover:text-blue-400 transition">
               Ofertas
@@ -79,7 +87,6 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
             <div className="relative mb-4">
@@ -92,28 +99,34 @@ export function Header() {
             </div>
             <nav className="flex flex-col space-y-3">
               <Link
-                href="/categories/smartphones"
+                href="/categories/electronica"
                 className="hover:text-blue-400 transition"
               >
-                Smartphones
+                Electronica
               </Link>
               <Link
-                href="/categories/laptops"
+                href="/categories/hogar"
                 className="hover:text-blue-400 transition"
               >
-                Laptops
+                Hogar
               </Link>
               <Link
-                href="/categories/audio"
+                href="/categories/deportes"
                 className="hover:text-blue-400 transition"
               >
-                Audio
+                Deportes
               </Link>
               <Link
-                href="/categories/accessories"
+                href="/categories/moda"
                 className="hover:text-blue-400 transition"
               >
-                Accesorios
+                Moda
+              </Link>
+              <Link
+                href="/categories/juguetes"
+                className="hover:text-blue-400 transition"
+              >
+                Juguetes
               </Link>
               <Link href="/offers" className="hover:text-blue-400 transition">
                 Ofertas
