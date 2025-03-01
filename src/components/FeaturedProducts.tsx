@@ -5,12 +5,13 @@ import { ProductCard } from "./ProductCard";
 import { Link } from "lucide-react";
 import { fetchProducts } from "@/services/apiService";
 import { useFetch } from "./hooks/useFetch";
+import Loading from "@/app/loading";
 
 
-export function FeaturedProducts() {
 
-  const { data: products, loading, error } = useFetch<Product[]>(fetchProducts);
-
+  export function FeaturedProducts() {
+    const { data: products, loading, error } = useFetch<Product[]>(fetchProducts);
+  
     return (
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -18,11 +19,21 @@ export function FeaturedProducts() {
             <h2 className="text-3xl font-bold mb-2">Productos Destacados</h2>
             <p className="text-gray-600">Descubre nuestra selección de productos premium</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {products?.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <div className="text-center text-red-500">
+              Error al cargar productos. Por favor, intenta nuevamente.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {products?.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          )}
+          
           <div className="text-center mt-10">
             <Link
               href="/products"
