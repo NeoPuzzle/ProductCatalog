@@ -1,0 +1,44 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "sku": "PROD001",
+        "name": "Laptop Gamer Pro X",
+        "category": "Electrónica",
+        "brand": "TechBrand",
+        "price": 1200,
+        "description": "Potente laptop para gaming con procesador de última generación.",
+        "image": "/images/laptop.jpg"
+      },
+      {
+        "id": 2,
+        "sku": "PROD002",
+        "name": "Smartphone Ultra Z",
+        "category": "Electrónica",
+        "brand": "PhoneCorp",
+        "price": 800,
+        "description": "Teléfono inteligente con cámara de alta resolución.",
+        "image": "/images/smartphone.jpg"
+      },
+      {
+        "id": 3,
+        "sku": "PROD003",
+        "name": "Silla Ergonómica",
+        "category": "Hogar",
+        "brand": "ComfortLife",
+        "price": 150,
+        "description": "Silla ergonómica diseñada para largas horas de trabajo.",
+        "image": "/images/chair.jpg"
+      },
+      {
+        "id": 4,
+        "sku": "PROD004",
+        "name": "Cafetera Automática",
+        "category": "Hogar",
+        "brand": "CoffeeMaster",
+        "price": 200,
+        "description": "Cafetera automática con múltiples opciones de preparación.",
+        "image": "/images/coffee-maker.jpg"
+      }
+    ]
+  }
