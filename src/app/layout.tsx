@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { GlobalStateProvider } from "@/context/GlobalStateProvider";
+import { QueryProvider } from "../components/QueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,21 +19,15 @@ export const metadata: Metadata = {
   description: "Virtual product store",
 };
 
-// const queryClient = new QueryClient();
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* <QueryClientProvider client={queryClient}> */}
-        <GlobalStateProvider>{children}</GlobalStateProvider>
-        {/* </QueryClientProvider> */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <QueryProvider>
+          <GlobalStateProvider>{children}</GlobalStateProvider>
+        </QueryProvider>
       </body>
     </html>
   );
