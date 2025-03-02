@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 export interface GlobalState {
   cart: CartItem[];
@@ -20,8 +20,32 @@ export interface CartItem {
   stock: number;
 }
 
+const saveCartToLocalStorage = (cart: CartItem[]) => {
+  const data = {
+    cart,
+    timestamp: Date.now(),
+  };
+  localStorage.setItem("cart", JSON.stringify(data));
+};
+
+const loadCartFromLocalStorage = (): CartItem[] => {
+  const data = JSON.parse(localStorage.getItem("cart") || "{}");
+  const oneDay = 24 * 60 * 60 * 1000; // 1 día en milisegundos
+  if (data.timestamp && Date.now() - data.timestamp < oneDay) {
+    return data.cart;
+  }
+  return [];
+};
+
 export function GlobalStateProvider({ children }: { children: React.ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const initialCart = typeof window !== "undefined" ? loadCartFromLocalStorage() : [];
+  const [cart, setCart] = useState<CartItem[]>(initialCart);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      saveCartToLocalStorage(cart);
+    }
+  }, [cart]);
 
   const addToCart = (item: CartItem) => {
     setCart((prevCart) => {

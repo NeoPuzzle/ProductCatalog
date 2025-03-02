@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { Search, ShoppingCart, User, Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Search, User, Menu, X } from "lucide-react";
 import debounce from "lodash.debounce";
 import { fetchCategories, fetchProducts } from "@/services/apiService";
 import { Category, Product } from "@/types/product";
@@ -10,20 +10,27 @@ import Loading from "@/app/loading";
 import { useFetch } from "./hooks/useFetch";
 import { useSearch } from "./hooks/useSearch";
 import { useGlobalState } from "@/context/GlobalStateProvider";
+import { CartIcon } from "./CartIcon";
 
-export function Header() {
+export function Header({ onProductClick }: { onProductClick: (id: string) => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { data: categories, loading, error } = useFetch<Category[]>(fetchCategories);
+  const {
+    data: categories,
+    loading,
+    error,
+  } = useFetch<Category[]>(fetchCategories);
   const { data: products = [] } = useFetch(fetchProducts);
-  const { query, setQuery, filteredData } = useSearch<Product>(products, "name");
+  const { query, setQuery, filteredData } = useSearch<Product>(
+    products,
+    "name"
+  );
   const { cart } = useGlobalState();
 
   const handleSearch = debounce((value: string) => {
     setQuery(value);
   }, 300);
 
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
+  // const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <header className="bg-gray-900 text-white sticky top-0 z-50">
@@ -76,21 +83,31 @@ export function Header() {
                 onChange={(e) => handleSearch(e.target.value)}
               />
               <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+
+              {query && (
+                <div className="absolute top-12 left-0 bg-white text-black p-4 rounded-lg shadow-lg w-64">
+                  {filteredData.length > 0 ? (
+                    filteredData.map((product) => (
+                      <Link
+                        key={product.id}
+                        href={`/`}
+                        className="block py-2 hover:bg-gray-100"
+                        onClick={() => onProductClick(product.id)} 
+                      >
+                        {product.name}
+                      </Link>
+                    ))
+                  ) : (
+                    <p>No se encontraron resultados</p>
+                  )}
+                </div>
+              )}
             </div>
+
             <Link href="/account" className="hover:text-blue-400 transition">
               <User className="h-6 w-6" />
             </Link>
-            <Link
-              href="/cart"
-              className="relative hover:text-blue-400 transition"
-            >
-              <ShoppingCart className="h-6 w-6" />
-              {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  {totalItems}
-                </span>
-              )}
-            </Link>
+            <CartIcon />
           </div>
         </div>
 
@@ -106,22 +123,22 @@ export function Header() {
               <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
             </div>
             {query && (
-            <div className="absolute top-20 right-0 bg-white text-black p-4 rounded-lg shadow-lg w-64">
-              {filteredData.length > 0 ? (
-                filteredData.map((product) => (
-                  <Link
-                    key={product.id}
-                    href={`/`}
-                    className="block py-2 hover:bg-gray-100"
-                  >
-                    {product.name}
-                  </Link>
-                ))
-              ) : (
-                <p>No se encontraron resultados</p>
-              )}
-            </div>
-          )}
+              <div className="absolute top-20 right-0 bg-white text-black p-4 rounded-lg shadow-lg w-64">
+                {filteredData.length > 0 ? (
+                  filteredData.map((product) => (
+                    <Link
+                      key={product.id}
+                      href={`/`}
+                      className="block py-2 hover:bg-gray-100"
+                    >
+                      {product.name}
+                    </Link>
+                  ))
+                ) : (
+                  <p>No se encontraron resultados</p>
+                )}
+              </div>
+            )}
             <nav className="flex flex-col space-y-3">
               {loading ? (
                 <Loading />
