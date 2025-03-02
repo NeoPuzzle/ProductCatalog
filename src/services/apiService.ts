@@ -12,6 +12,22 @@ export async function fetchCategories() {
   }
 }
 
+export async function fetchProductsByCategory(categorySlug: string) {
+  try {
+    const categoriesResponse = await axios.get(`${API_URL}/categories`);
+    const categories = categoriesResponse.data;
+
+    const category = categories.find((cat: any) => cat.slug === categorySlug);
+    if (!category) throw new Error("Categoría no encontrada");
+
+    const productsResponse = await axios.get(`${API_URL}/products?category=${encodeURIComponent(category.name)}`);
+    return productsResponse.data;
+  } catch (error) {
+    console.error("Error fetching products by category:", error);
+    throw error;
+  }
+}
+
 export async function fetchProducts(
   page: number = 1,
   limit: number = 12,
