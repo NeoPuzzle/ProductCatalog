@@ -11,7 +11,7 @@ import dynamic from "next/dynamic";
 const ProductCard = dynamic(() => import("./ProductCard"), { ssr: false });
 
 
-  export function FeaturedProducts() {
+  export function FeaturedProducts({ onProductClick }: { onProductClick: (id: string) => void }) {
     const { data: products, loading, error } = useFetch<Product[]>(fetchProducts);
   
     return (
@@ -31,7 +31,13 @@ const ProductCard = dynamic(() => import("./ProductCard"), { ssr: false });
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {products?.map(product => (
-                <ProductCard key={product.id} product={product} />
+                <div 
+                key={product.id} 
+                onClick={() => onProductClick(product.id)}
+                className="cursor-pointer"
+              >
+                <ProductCard product={product} />
+              </div>
               ))}
             </div>
           )}
