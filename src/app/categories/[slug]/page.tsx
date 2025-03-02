@@ -2,9 +2,8 @@ import { notFound } from "next/navigation";
 import { fetchProductsByCategory } from "@/services/apiService";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import dynamic from "next/dynamic";
+import ProductCard from "@/components/ProductCard";
 
-const ProductCard = dynamic(() => import("@/components/ProductCard"), { ssr: false });
 
 interface CategoryPageProps {
   params: { slug: string };
@@ -27,7 +26,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div>
-      <Header />
+      <Header onProductClick={(id: string) => console.log(`Product clicked: ${id}`)} />
 
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Categoría: {slug}</h1>

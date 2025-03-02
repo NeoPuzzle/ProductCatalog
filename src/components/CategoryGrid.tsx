@@ -14,7 +14,6 @@ export function CategoryGrid() {
     error,
   } = useFetch<Category[]>(fetchCategories);
 
-
   return (
     <section className="py-16 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -35,7 +34,7 @@ export function CategoryGrid() {
             {categories?.map((category) => (
               <Link
                 key={category.id}
-                href={`/categories/${category.slug}`}
+                href={`/categories/${encodeURIComponent(category.slug)}`}
                 className="group"
               >
                 <div className="bg-white rounded-lg shadow-md overflow-hidden transition transform hover:scale-105">
@@ -45,6 +44,7 @@ export function CategoryGrid() {
                       alt={category.name}
                       fill
                       className="object-cover"
+                      loading="lazy"
                     />
                   </div>
                   <div className="p-4 text-center">
