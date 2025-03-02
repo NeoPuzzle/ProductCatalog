@@ -1,12 +1,14 @@
 'use client';
 
 import { Product } from "@/types/product";
-import { ProductCard } from "./ProductCard";
+// import { ProductCard } from "./ProductCard";
 import { Link } from "lucide-react";
 import { fetchProducts } from "@/services/apiService";
 import { useFetch } from "./hooks/useFetch";
 import Loading from "@/app/loading";
+import dynamic from "next/dynamic";
 
+const ProductCard = dynamic(() => import("./ProductCard"), { ssr: false });
 
 
   export function FeaturedProducts() {

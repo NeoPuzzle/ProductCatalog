@@ -6,7 +6,7 @@ interface ProductCardProps {
   product: Product;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
       <Link href={`/product/${product.id}`}>

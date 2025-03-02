@@ -37,6 +37,7 @@ export function HeroSection() {
               alt="Latest Products"
               fill
               className="rounded-lg shadow-xl object-cover"
+              loading="lazy"
             />
           </div>
         </div>
