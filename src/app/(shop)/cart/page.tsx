@@ -12,7 +12,7 @@ export default function ShoppingCart() {
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
 
-  const subtotal = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
   const taxRate = 0.18;
   const taxAmount = subtotal * taxRate;
   const total = subtotal + taxAmount - discount;
@@ -115,27 +115,20 @@ export default function ShoppingCart() {
                   </tbody>
                 </table>
               </div>
-
-              <div className="mt-6 flex justify-between items-center">
-                <Link href="/" className="flex items-center text-blue-600 hover:text-blue-800">
-                  <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                  </svg>
-                  Continuar Comprando
-                </Link>
-
-                <button onClick={clearCart} className="text-blue  -600 hover:text-gray-800">
-                  Vaciar Carrito
-                </button>
-              </div>
             </div>
-
             <div className="lg:w-1/3 bg-white rounded-lg shadow-md p-6">
               <h2 className="text-lg text-gray-600 font-semibold mb-4">Resumen de la Orden</h2>
               <p className="text-gray-600 font-medium">Subtotal: S/{subtotal.toFixed(2)}</p>
               <p className="text-gray-600 font-medium">IGV (18%): S/{taxAmount.toFixed(2)}</p>
               {discount > 0 && <p className="text-gray-600 font-medium">Descuento: -S/{discount.toFixed(2)}</p>}
               <p className="font-bold text-gray-600 text-xl">Total: S/{total.toFixed(2)}</p>
+              <input 
+                type="text" 
+                placeholder="Código de cupón" 
+                value={couponCode} 
+                onChange={(e) => setCouponCode(e.target.value)} 
+                className="w-full border border-black text-black p-2 rounded-lg mb-2"
+              />
               <button onClick={applyCoupon} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition">
                 Aplicar Cupón
               </button>
