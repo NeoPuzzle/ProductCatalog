@@ -1,17 +1,36 @@
 import Link from 'next/link';
 import { Star, ShoppingCart } from 'lucide-react';
 import { Product } from '@/types/product';
+import { useGlobalState } from '@/context/GlobalStateProvider';
+import Image from 'next/image';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useGlobalState();
+
+  const handleAddToCart = () => {
+    if (product.stock > 0) {
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: product.discountPrice || product.price,
+        stock: product.stock,
+        quantity: 1,
+      });
+      alert(`${product.name} añadido al carrito`);
+    } else {
+      alert("Este producto no está disponible");
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <Link href={`/product/${product.id}`}>
+      <Link href={`/`}>
         <div className="relative pt-[100%]">
-          <img 
+          <Image 
             src={product.images[0]} 
             alt={product.name}
             className="absolute inset-0 w-full h-full object-cover"
@@ -32,7 +51,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <span className="ml-1">{product.rating}</span>
           </div>
         </div>
-        <Link href={`/product/${product.id}`}>
+        <Link href={`/`}>
           <h3 className="font-medium text-gray-900 hover:text-blue-600 line-clamp-2 h-12">{product.name}</h3>
         </Link>
         <div className="mt-2 flex items-center">
@@ -51,6 +70,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </span>
           <button 
             disabled={product.stock === 0}
+            onClick={handleAddToCart}
             className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
           >
             <ShoppingCart className="h-5 w-5" />

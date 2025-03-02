@@ -44,7 +44,7 @@ const ProductCard = dynamic(() => import("./ProductCard"), { ssr: false });
           
           <div className="text-center mt-10">
             <Link
-              href="/products"
+              href="/"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition"
             >
               Ver Todos los Productos
