@@ -6,7 +6,10 @@ import { useGlobalState } from "@/context/GlobalStateProvider";
 
 export function CartIcon() {
   const { cart } = useGlobalState();
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = Array.isArray(cart)
+    ? cart.reduce((sum, item) => sum + item.quantity, 0)
+    : 0;
+
 
   return (
     <Link href="/cart" className="relative hover:text-blue-400 transition">

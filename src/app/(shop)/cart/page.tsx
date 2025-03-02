@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -8,11 +7,12 @@ import { useGlobalState } from "@/context/GlobalStateProvider";
 import { useState } from "react";
 
 export default function ShoppingCart() {
-  const { cart, updateQuantity, removeFromCart, clearCart } = useGlobalState();
+  const { cart: rawCart, updateQuantity, removeFromCart, clearCart } = useGlobalState();
+  const cart = Array.isArray(rawCart) ? rawCart : [];
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
 
-  const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const subtotal = cart.reduce((sum, item) => sum + item.quantity, 0);
   const taxRate = 0.18;
   const taxAmount = subtotal * taxRate;
   const total = subtotal + taxAmount - discount;
@@ -30,7 +30,7 @@ export default function ShoppingCart() {
 
   return (
     <>
-      <Header />
+      <Header onProductClick={(id: string) => console.log(`Product clicked: ${id}`)} />
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Carrito de Compras</h1>
 
