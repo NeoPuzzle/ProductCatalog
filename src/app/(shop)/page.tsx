@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { HeroSection } from "@/components/HeroSection";
@@ -23,7 +22,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <Header />
+      <Header onProductClick={openProductModal} />
       <HeroSection />
       <CategoryGrid />
       <FeaturedProducts onProductClick={openProductModal} />
@@ -33,11 +32,13 @@ export default function Home() {
       <Newsletter />
       <Footer />
 
-      <ProductModal
-        productId={selectedProductId}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      {isModalOpen && (
+        <ProductModal
+          productId={selectedProductId}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
     </main>
   );
 }

@@ -130,7 +130,7 @@ export default function ProductModal({
               </div>
 
               <div className="lg:w-3/5">
-                <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
+                <h1 className="text-3xl text-gray-700 font-bold mb-4">{product.name}</h1>
                 <div className="flex items-center mb-4">
                   <span className="text-yellow-500 mr-1">⭐️</span>
                   <span className="text-gray-700">
@@ -139,14 +139,14 @@ export default function ProductModal({
                 </div>
                 <div className="flex items-center mb-4">
                   <span className="text-2xl font-bold text-gray-900 mr-2">
-                    $
+                    S/
                     {product.discountPrice
                       ? product.discountPrice.toLocaleString()
                       : product.price.toLocaleString()}
                   </span>
                   {product.discountPrice && (
                     <span className="text-gray-500 line-through">
-                      S/{product.price.toLocaleString()}
+                      ${product.price.toLocaleString()}
                     </span>
                   )}
                 </div>
@@ -165,7 +165,7 @@ export default function ProductModal({
                 </div>
 
                 <div className="mb-6">
-                  <h2 className="text-xl font-semibold mb-2">Características</h2>
+                  <h2 className="text-xl text-gray-700 font-semibold mb-2">Características</h2>
                   <ul className="list-disc list-inside text-gray-700">
                     {product.features.map((feature: string, idx: number) => (
                       <li key={idx}>{feature}</li>
@@ -174,7 +174,7 @@ export default function ProductModal({
                 </div>
 
                 <div>
-                  <h2 className="text-xl font-semibold mb-2">Especificaciones</h2>
+                  <h2 className="text-xl text-gray-700 font-semibold mb-2">Especificaciones</h2>
                   <ul className="list-disc list-inside text-gray-700">
                     {Object.entries(product.specifications).map(
                       ([key, value], idx) => (
