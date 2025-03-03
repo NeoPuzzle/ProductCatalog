@@ -27,7 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <Link href={`/`}>
+      <Link href={`/products/${product.id}`}>
         <div className="cursor-pointer">
           <div className="relative pt-[100%]">
             <img 
