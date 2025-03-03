@@ -5,7 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import HeaderWrapper from "@/components/HeaderWrapper";
 import { CategoryPageProps, Product } from "@/types/product";
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
+export default async function CategoryPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   try {
