@@ -1,18 +1,19 @@
-import { useRouter } from "next/router";
+"use client"; // Asegúrate de marcar este componente como un Client Component
+
+import { useSearchParams } from "next/navigation";
 import { Product } from "@/types/product";
 import { useSearchProducts } from "@/components/hooks/useSearchProducts";
 import Image from "next/image";
 
 export default function SearchPage() {
-  const router = useRouter();
-  const searchQuery =
-    typeof router.query.query === "string" ? router.query.query : "";
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("query") || ""; // Obtén el parámetro "query"
 
   const {
     data: products = [],
     isLoading,
     error,
-  } = useSearchProducts(searchQuery as string);
+  } = useSearchProducts(searchQuery);
 
   if (!searchQuery) {
     return <p>Por favor, ingresa un término de búsqueda.</p>;
