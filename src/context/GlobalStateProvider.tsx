@@ -49,16 +49,13 @@ export function GlobalStateProvider({ children }: { children: React.ReactNode })
     });
   };
 
-  const clearCart = () => {
-    setCart([]);
-  };
+
 
   const globalState: GlobalState = {
     cart,
     addToCart,
     removeFromCart,
-    updateQuantity,
-    clearCart,
+    updateQuantity
   };
 
   return (

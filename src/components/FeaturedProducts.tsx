@@ -68,12 +68,6 @@ export function FeaturedProducts({ onProductClick }: { onProductClick: (id: stri
         ) : (
           productGrid
         )}
-
-        <div className="text-center mt-10">
-          <a href="/" className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition">
-            Ver Todos los Productos
-          </a>
-        </div>
       </div>
     </section>
   );

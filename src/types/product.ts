@@ -42,5 +42,4 @@ export interface Product {
     addToCart: (item: CartItem) => void;
     removeFromCart: (id: string) => void;
     updateQuantity: (id: string, quantity: number) => void;
-    clearCart: () => void;
   }

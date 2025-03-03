@@ -5,9 +5,10 @@ import { useRouter } from "next/navigation";
 import { fetchProductById } from "@/services/apiService";
 import Image from "next/image";
 import { useGlobalState } from "@/context/GlobalContext";
+import { Product } from "@/types/product";
 
 export default function ProductModal({ params }: { params: { id: string } }) {
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<Product>();
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { addToCart } = useGlobalState();

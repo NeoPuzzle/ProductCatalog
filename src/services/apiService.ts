@@ -1,3 +1,5 @@
+import { Category } from "@/types/product";
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function fetchCategories() {
@@ -17,7 +19,7 @@ export async function fetchProductsByCategory(categorySlug: string) {
     if (!categoriesResponse.ok) throw new Error("Failed to fetch categories");
     const categories = await categoriesResponse.json();
 
-    const category = categories.find((cat: any) => cat.slug === categorySlug);
+    const category = categories.find((cat: Category) => cat.slug === categorySlug);
     if (!category) throw new Error("Categoría no encontrada");
 
     const productsResponse = await fetch(

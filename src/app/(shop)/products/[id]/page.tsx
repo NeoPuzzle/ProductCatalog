@@ -11,13 +11,14 @@ import { ArrowLeft, Facebook, Heart, Instagram, Share, ShoppingCart, Star, Twitc
 import Link from "next/link";
 import HeaderWrapper from "@/components/HeaderWrapper";
 import { Footer } from "@/components/Footer";
+import { Product } from "@/types/product";
 
 export default function ProductPage() {
   const { id } = useParams() as { id: string };
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<Product>();
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity] = useState(1);
   const { addToCart } = useGlobalState();
   const [isFavorite, setIsFavorite] = useState(false);
 

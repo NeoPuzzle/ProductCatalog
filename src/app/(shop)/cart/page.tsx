@@ -8,7 +8,7 @@ import HeaderWrapper from "@/components/HeaderWrapper";
 import Image from "next/image";
 
 export default function ShoppingCart() {
-  const { cart: rawCart, updateQuantity, removeFromCart, clearCart } = useGlobalState();
+  const { cart: rawCart, updateQuantity, removeFromCart } = useGlobalState();
   const cart = Array.isArray(rawCart) ? rawCart : [];
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
