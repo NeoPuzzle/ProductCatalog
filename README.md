@@ -1,37 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Documentación de AppStore
 
-## Getting Started
+## Introducción
+Este proyecto es el frontend de una tienda en línea desarrollada con **Next.js (App Router)**. Se conecta a un backend simulado con **JSON Server** y permite la gestión de productos, categorías, carrito de compras y cupones de descuento.
 
-First, run the development server:
+## Instalación y Configuración
+### Prerrequisitos
+- **Node.js** (v18 o superior)
+- **npm**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Instalación de dependencias
+```sh
+npm install  # O usa npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Configuración del entorno
+Crea un archivo `.env.local` en la raíz del proyecto y agrega las siguientes variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Uso de JSON Server
+Este proyecto usa **JSON Server** para simular una API REST con datos de prueba.
 
-## Learn More
+### Instalación de JSON Server
+```sh
+npm add -g json-server
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Inicio del servidor JSON
+```sh
+json-server --watch db.json --port 3001
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El archivo `db.json` contiene datos de ejemplo:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```json
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Producto de ejemplo",
+      "price": 100,
+      "category": "Ejemplo"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Ejemplo",
+      "slug": "ejemplo"
+    }
+  ]
+}
+```
 
-## Deploy on Vercel
+## Estructura del Proyecto
+```
+src/
+├── app/
+│   ├── (shop)/
+│   │   ├── page.tsx   # Página principal
+│   │   ├── products/
+│   │   │   ├── [id]/page.tsx   # Página de detalle del producto
+│   │   │   ├── @modal/products/[id]/page.tsx   # Modal del producto
+│   ├── layout.tsx   # Layout principal
+├── components/
+├── context/
+├── services/
+├── types/
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Componentes Destacados
+### `ProductModal.tsx`
+Muestra un modal con la información del producto cuando se selecciona en la página de inicio.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# ProductCatalog
+### `ProductPage.tsx`
+Página individual del producto, accesible en `/products/[id]`.
+
+## Despliegue en Vercel
+Para desplegar este proyecto en **Vercel**, sigue estos pasos:
+
+1. Instala la CLI de Vercel:
+   ```sh
+   pnpm add -g vercel
+   ```
+
+2. Inicia sesión:
+   ```sh
+   vercel login
+   ```
+
+3. Despliega el proyecto:
+   ```sh
+   vercel --prod
+   ```
+
+## Pruebas con Cupones de Descuento
+Para probar cupones en el frontend, usa los siguientes códigos:
+
+- **`DESCUENTO20`**: Aplica un 20% de descuento.
+- **`PROMO50`**: Aplica S/ 50 de descuento.
+
+
+---
+
+Esta documentación proporciona una visión general del frontend, su configuración y el uso de JSON Server. Para más detalles, revisa el código fuente o expande la documentación según sea necesario.
+
