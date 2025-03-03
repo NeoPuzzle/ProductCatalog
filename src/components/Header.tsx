@@ -69,7 +69,7 @@ export function Header({ onProductClick }: { onProductClick: (id: string) => voi
                 onChange={handleSearch}
                 aria-label="Buscar productos"
               />
-              <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+              <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" data-testid="search-icon"  />
               {query && (
                 <div className="absolute top-12 left-0 bg-white text-black p-4 rounded-lg shadow-lg w-64 z-10" aria-live="polite">
                   {filteredData.length > 0 ? (
@@ -89,9 +89,9 @@ export function Header({ onProductClick }: { onProductClick: (id: string) => voi
               )}
             </div>
             <Link href="/account" className="hover:text-blue-400 transition" aria-label="Cuenta">
-              <User className="h-6 w-6" />
+              <User className="h-6 w-6" data-testid="user-icon"/>
             </Link>
-            <CartIcon />
+            <CartIcon data-testid="cart-icon"  />
           </div>
         </div>
 

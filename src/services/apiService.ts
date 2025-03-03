@@ -13,16 +13,13 @@ export async function fetchCategories() {
 
 export async function fetchProductsByCategory(categorySlug: string) {
   try {
-    // Obtener todas las categorías
     const categoriesResponse = await fetch(`${API_URL}/categories`);
     if (!categoriesResponse.ok) throw new Error("Failed to fetch categories");
     const categories = await categoriesResponse.json();
 
-    // Encontrar la categoría específica
     const category = categories.find((cat: any) => cat.slug === categorySlug);
     if (!category) throw new Error("Categoría no encontrada");
 
-    // Obtener productos de la categoría
     const productsResponse = await fetch(
       `${API_URL}/products?category=${encodeURIComponent(category.name)}`
     );
