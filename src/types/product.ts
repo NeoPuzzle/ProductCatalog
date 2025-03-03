@@ -19,3 +19,28 @@ export interface Product {
     slug: string;
     image: string;
   }
+
+  export interface CategoryPageProps {
+    params: { slug: string };
+  }
+
+  export interface ProductCardProps {
+    product: Product;
+  }
+
+  export interface CartItem {
+    id: string;
+    name: string;
+    price: number;
+    images: string | string[];
+    quantity: number;
+    stock: number;
+  }
+  
+  export interface GlobalState {
+    cart: CartItem[];
+    addToCart: (item: CartItem) => void;
+    removeFromCart: (id: string) => void;
+    updateQuantity: (id: string, quantity: number) => void;
+    clearCart: () => void;
+  }

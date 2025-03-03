@@ -2,12 +2,8 @@
 
 import Link from 'next/link';
 import { Star, ShoppingCart } from 'lucide-react';
-import { Product } from '@/types/product';
-import { useGlobalState } from '@/context/GlobalStateProvider';
-
-interface ProductCardProps {
-  product: Product;
-}
+import { ProductCardProps } from '@/types/product';
+import { useGlobalState } from '@/context/GlobalContext';
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useGlobalState();
@@ -19,6 +15,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         id: product.id,
         name: product.name,
         price: product.discountPrice || product.price,
+        images: product.images,
         stock: product.stock,
         quantity: 1,
       });

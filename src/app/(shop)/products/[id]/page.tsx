@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { fetchProductById } from "@/services/apiService";
-import { useGlobalState } from "@/context/GlobalStateProvider";
+import { useGlobalState } from "@/context/GlobalContext";
 
 export default function ProductModal({
   productId,

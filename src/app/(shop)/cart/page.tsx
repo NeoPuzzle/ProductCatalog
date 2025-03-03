@@ -1,36 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { useGlobalState } from "@/context/GlobalStateProvider";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { useGlobalState } from "@/context/GlobalContext";
+import HeaderWrapper from "@/components/HeaderWrapper";
 
 export default function ShoppingCart() {
   const { cart: rawCart, updateQuantity, removeFromCart, clearCart } = useGlobalState();
   const cart = Array.isArray(rawCart) ? rawCart : [];
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
+  const [couponMessage, setCouponMessage] = useState("");
 
-  const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
   const taxRate = 0.18;
-  const taxAmount = subtotal * taxRate;
-  const total = subtotal + taxAmount - discount;
+  const subtotal = useMemo(() => cart.reduce((sum, item) => sum + item.price * item.quantity, 0), [cart]);
+  const taxAmount = useMemo(() => subtotal * taxRate, [subtotal]);
+  const total = useMemo(() => subtotal + taxAmount - discount, [subtotal, taxAmount, discount]);
 
   const applyCoupon = () => {
     if (couponCode.toUpperCase() === "DESCUENTO20") {
       setDiscount(subtotal * 0.2);
+      setCouponMessage("Cupón aplicado con éxito: 20% de descuento.");
     } else if (couponCode.toUpperCase() === "PROMO50") {
       setDiscount(50);
+      setCouponMessage("Cupón aplicado con éxito: S/50 de descuento.");
     } else {
       setDiscount(0);
-      alert("Cupón inválido");
+      setCouponMessage("Cupón inválido, inténtalo de nuevo.");
     }
   };
 
   return (
     <>
-      <Header onProductClick={(id: string) => console.log(`Product clicked: ${id}`)} />
+      <HeaderWrapper />
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Carrito de Compras</h1>
 
@@ -45,66 +48,54 @@ export default function ShoppingCart() {
         ) : (
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-2/3">
-              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="bg-gray-600 rounded-lg shadow-md overflow-hidden">
                 <table className="w-full">
-                  <thead className="bg-gray-100">
+                  <thead className="bg-gray-500">
                     <tr>
-                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">Producto</th>
-                      <th className="px-6 py-3 text-center text-sm font-semibold text-gray-600">Cantidad</th>
-                      <th className="px-6 py-3 text-right text-sm font-semibold text-gray-600">Precio</th>
-                      <th className="px-6 py-3 text-right text-sm font-semibold text-gray-600">Subtotal</th>
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Producto</th>
+                      <th className="px-6 py-3 text-center text-sm font-semibold text-gray-900">Cantidad</th>
+                      <th className="px-6 py-3 text-right text-sm font-semibold text-gray-900">Precio</th>
+                      <th className="px-6 py-3 text-right text-sm font-semibold text-gray-900">Subtotal</th>
                       <th className="px-6 py-3"></th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {cart.map((item) => (
                       <tr key={item.id}>
-                        <td className="px-6 py-4">
-                          <div className="flex items-center">
-                            <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                              <div className="h-full w-full bg-gray-200 flex items-center justify-center text-gray-500">
-                                <span>Imagen</span>
-                              </div>
-                            </div>
-                            <div className="ml-4">
-                              <h3 className="text-sm font-medium text-gray-900">{item.name}</h3>
-                              <p className="mt-1 text-xs text-gray-500">SKU: {item.id}</p>
-                            </div>
+                        <td className="px-6 py-4 flex items-center">
+                          <img src={Array.isArray(item.images) ? item.images[0] : item.images} alt={item.name} className="h-20 w-20 object-cover rounded-md border" />
+                          <div className="ml-4">
+                            <h3 className="text-sm font-medium text-gray-900">{item.name}</h3>
+                            <p className="text-xs text-gray-900">SKU: {item.id}</p>
                           </div>
                         </td>
-                        <td className="px-6 py-4">
-                          <div className="flex items-center justify-center">
-                            <button
-                              onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
-                              className="text-gray-500 focus:outline-none focus:text-gray-600 p-1"
-                              disabled={item.quantity <= 1}
-                            >
-                              <span className="text-lg">-</span>
-                            </button>
-                            <input
-                              type="number"
-                              min="1"
-                              max={item.stock}
-                              value={item.quantity}
-                              onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
-                              className="mx-2 border text-gray-900 text-center w-12 rounded-md"
-                            />
-                            <button
-                              onClick={() => updateQuantity(item.id, Math.min(item.stock, item.quantity + 1))}
-                              className="text-gray-500 focus:outline-none focus:text-gray-600 p-1"
-                              disabled={item.quantity >= item.stock}
-                            >
-                              <span className="text-lg">+</span>
-                            </button>
-                          </div>
-                          <p className="text-xs text-center mt-1 text-gray-500">
-                            {item.stock} disponibles
-                          </p>
+                        <td className="px-6 py-4 text-center">
+                          <button
+                            onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
+                            className="text-gray-900 p-1"
+                            disabled={item.quantity <= 1}
+                          >-
+                          </button>
+                          <input
+                            type="number"
+                            min="1"
+                            max={item.stock}
+                            value={item.quantity}
+                            onChange={(e) => {
+                              const newQuantity = Math.max(1, Math.min(item.stock, parseInt(e.target.value) || 1));
+                              updateQuantity(item.id, newQuantity);
+                            }}
+                            className="mx-2 border text-gray-900 text-center w-12 rounded-md"
+                          />
+                          <button
+                            onClick={() => updateQuantity(item.id, Math.min(item.stock, item.quantity + 1))}
+                            className="text-gray-900 p-1"
+                            disabled={item.quantity >= item.stock}
+                          >+
+                          </button>
                         </td>
-                        <td className="px-6 py-4 text-right text-sm text-gray-500">S/{item.price.toFixed(2)}</td>
-                        <td className="px-6 py-4 text-right text-sm font-medium text-gray-900">
-                          S/{(item.price * item.quantity).toFixed(2)}
-                        </td>
+                        <td className="px-6 py-4 text-right">S/{item.price.toFixed(2)}</td>
+                        <td className="px-6 py-4 text-right">S/{(item.price * item.quantity).toFixed(2)}</td>
                         <td className="px-6 py-4 text-right">
                           <button onClick={() => removeFromCart(item.id)} className="text-red-600 hover:text-red-800">
                             Eliminar
@@ -116,22 +107,17 @@ export default function ShoppingCart() {
                 </table>
               </div>
             </div>
-            <div className="lg:w-1/3 bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-lg text-gray-600 font-semibold mb-4">Resumen de la Orden</h2>
-              <p className="text-gray-600 font-medium">Subtotal: S/{subtotal.toFixed(2)}</p>
-              <p className="text-gray-600 font-medium">IGV (18%): S/{taxAmount.toFixed(2)}</p>
-              {discount > 0 && <p className="text-gray-600 font-medium">Descuento: -S/{discount.toFixed(2)}</p>}
-              <p className="font-bold text-gray-600 text-xl">Total: S/{total.toFixed(2)}</p>
-              <input 
-                type="text" 
-                placeholder="Código de cupón" 
-                value={couponCode} 
-                onChange={(e) => setCouponCode(e.target.value)} 
-                className="w-full border border-black text-black p-2 rounded-lg mb-2"
-              />
-              <button onClick={applyCoupon} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition">
+            <div className="lg:w-1/3 bg-gray-900 rounded-lg shadow-md p-6">
+              <h2 className="text-lg font-semibold mb-4">Resumen de la Orden</h2>
+              <p className="text-gray-600">Subtotal: S/{subtotal.toFixed(2)}</p>
+              <p className="text-gray-600">IGV (18%): S/{taxAmount.toFixed(2)}</p>
+              {discount > 0 && <p className="text-gray-600">Descuento: -S/{discount.toFixed(2)}</p>}
+              <p className="font-bold text-xl">Total: S/{total.toFixed(2)}</p>
+              <input type="text" placeholder="Código de cupón" value={couponCode} onChange={(e) => setCouponCode(e.target.value)} className="w-full border p-2 rounded-lg mb-2" />
+              <button onClick={applyCoupon} className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg">
                 Aplicar Cupón
               </button>
+              {couponMessage && <p className="text-red-500 mt-2">{couponMessage}</p>}
             </div>
           </div>
         )}

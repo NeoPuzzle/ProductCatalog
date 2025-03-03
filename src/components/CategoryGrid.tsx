@@ -2,17 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useFetch } from "./hooks/useFetch";
-import { fetchCategories } from "@/services/apiService";
-import { Category } from "@/types/product";
 import Loading from "@/app/loading";
+import { useCategories } from "./hooks/useCategories";
 
 export function CategoryGrid() {
-  const {
-    data: categories,
-    loading,
-    error,
-  } = useFetch<Category[]>(fetchCategories);
+  const { data: categories, isLoading, error } = useCategories();
 
   return (
     <section className="py-16 bg-gray-900">
@@ -23,7 +17,7 @@ export function CategoryGrid() {
             Explora nuestras categorías más buscadas
           </p>
         </div>
-        {loading ? (
+        {isLoading ? (
           <Loading />
         ) : error ? (
           <div className="text-center text-red-500">

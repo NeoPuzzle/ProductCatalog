@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { HeroSection } from "@/components/HeroSection";
@@ -10,6 +10,7 @@ import { Newsletter } from "@/components/Newsletter";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import ProductModal from "./products/[id]/page";
+import HeaderWrapper from "@/components/HeaderWrapper";
 
 export default function Home() {
   const [selectedProductId, setSelectedProductId] = useState("");
@@ -22,7 +23,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <Header onProductClick={openProductModal} />
+      <HeaderWrapper onProductClick={openProductModal} />
       <HeroSection />
       <CategoryGrid />
       <FeaturedProducts onProductClick={openProductModal} />

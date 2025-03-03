@@ -1,20 +1,17 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
 export function HeroSection() {
   return (
     <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
-      <div className="container mx-auto px-4">
+      <div className="container px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Descubre productos de última tecnología
             </h1>
             <p className="text-xl mb-6">
-              Explora nuestra colección de productos premium con los mejores
-              precios del mercado.
+              Explora nuestra colección de productos premium con los mejores precios del mercado.
             </p>
             <div className="flex space-x-4">
               <Link
@@ -31,13 +28,14 @@ export function HeroSection() {
               </Link>
             </div>
           </div>
-          <div className="relative w-full h-96">
+          <div className="relative w-full h-72 md:h-96">
             <Image
               src="/images/latest_products.jpg"
-              alt="Latest Products"
+              alt="Últimos productos"
               fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="rounded-lg shadow-xl object-cover"
-              loading="lazy"
             />
           </div>
         </div>

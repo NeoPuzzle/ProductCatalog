@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
-import { useGlobalState } from "@/context/GlobalStateProvider";
+import { useGlobalState } from "@/context/GlobalContext";
 
 export function CartIcon() {
   const { cart } = useGlobalState();
