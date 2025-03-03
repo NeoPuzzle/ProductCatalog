@@ -3,7 +3,7 @@ import { fetchProductsByCategory } from "@/services/apiService";
 import { Footer } from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import HeaderWrapper from "@/components/HeaderWrapper";
-import {  CategoryPageProps, Product } from "@/types/product";
+import { Product } from "@/types/product";
 
 export default async function CategoryPage({
   params,

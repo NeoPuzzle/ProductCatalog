@@ -20,10 +20,6 @@ export interface Product {
     image: string;
   }
 
-  export type CategoryPageProps = {
-    params: { slug: string };
-  };
-
   export interface ProductCardProps {
     product: Product;
   }
