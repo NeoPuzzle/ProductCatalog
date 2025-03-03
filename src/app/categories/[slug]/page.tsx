@@ -3,13 +3,9 @@ import { fetchProductsByCategory } from "@/services/apiService";
 import { Footer } from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import HeaderWrapper from "@/components/HeaderWrapper";
-import { Product } from "@/types/product";
+import { PageProps, Product } from "@/types/product";
 
-export default async function CategoryPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function CategoryPage({ params }: PageProps) {
 
   const { slug } = params;
 

@@ -20,6 +20,12 @@ export interface Product {
     image: string;
   }
 
+  export interface PageProps {
+    params: {
+      slug: string;
+    };
+  }
+
   export interface ProductCardProps {
     product: Product;
   }

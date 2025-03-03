@@ -1,4 +1,4 @@
-import { Category } from "@/types/product";
+import { Category, Product } from "@/types/product";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -13,7 +13,7 @@ export async function fetchCategories() {
   }
 }
 
-export async function fetchProductsByCategory(categorySlug: string) {
+export async function fetchProductsByCategory(categorySlug: string): Promise<Product[]> {
   try {
     const categoriesResponse = await fetch(`${API_URL}/categories`);
     if (!categoriesResponse.ok) throw new Error("Failed to fetch categories");
