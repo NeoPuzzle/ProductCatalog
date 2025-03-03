@@ -22,7 +22,7 @@ export interface Product {
 
   export interface PageProps {
     params: {
-      slug: any;
+      slug: string | any;
     };
   }
 
