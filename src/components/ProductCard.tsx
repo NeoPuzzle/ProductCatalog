@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Star, ShoppingCart } from 'lucide-react';
 import { ProductCardProps } from '@/types/product';
 import { useGlobalState } from '@/context/GlobalContext';
+import Image from 'next/image';
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useGlobalState();
@@ -30,9 +31,10 @@ export default function ProductCard({ product }: ProductCardProps) {
       <Link href={`/products/${product.id}`}>
         <div className="cursor-pointer">
           <div className="relative pt-[100%]">
-            <img 
+            <Image 
               src={product.images[0]} 
               alt={product.name}
+              fill
               className="absolute inset-0 w-full h-full object-cover"
             />
             {product.discountPrice && (

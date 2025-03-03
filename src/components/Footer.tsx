@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
@@ -15,18 +16,18 @@ export function Footer() {
               Tu tienda de confianza para los mejores productos con precios competitivos y servicio excepcional.
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
-              <a href="#" aria-label="Facebook" className="hover:text-white transition focus-visible:ring">
+              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition focus-visible:ring">
                 <Facebook className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a href="#" aria-label="Twitter" className="hover:text-white transition focus-visible:ring">
+              </Link>
+              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-white transition focus-visible:ring">
                 <Twitter className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a href="#" aria-label="Instagram" className="hover:text-white transition focus-visible:ring">
+              </Link>
+              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition focus-visible:ring">
                 <Instagram className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a href="#" aria-label="YouTube" className="hover:text-white transition focus-visible:ring">
+              </Link>
+              <Link href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-white transition focus-visible:ring">
                 <Youtube className="h-5 w-5" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -56,8 +57,8 @@ export function Footer() {
             <h3 className="text-white text-lg font-bold mb-4">Contáctanos</h3>
             <ul className="space-y-2">
               <li>Av. La Paz #2580, Lima</li>
-              <li>Teléfono: <a href="tel:+014567890" className="hover:text-white transition focus-visible:ring">(01) 456-7890</a></li>
-              <li>Email: <a href="mailto:info@jackstore.com" className="hover:text-white transition focus-visible:ring">info@jackstore.com</a></li>
+              <li>Teléfono: <Link href="tel:+014567890" className="hover:text-white transition focus-visible:ring">(01) 456-7890</Link></li>
+              <li>Email: <Link href="mailto:info@jackstore.com" className="hover:text-white transition focus-visible:ring">info@jackstore.com</Link></li>
               <li>Lunes - Viernes: 9:00 - 18:00</li>
               <li>Sábado: 10:00 - 14:00</li>
             </ul>

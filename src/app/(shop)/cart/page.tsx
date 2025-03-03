@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { useState, useMemo } from "react";
 import { useGlobalState } from "@/context/GlobalContext";
 import HeaderWrapper from "@/components/HeaderWrapper";
+import Image from "next/image";
 
 export default function ShoppingCart() {
   const { cart: rawCart, updateQuantity, removeFromCart, clearCart } = useGlobalState();
