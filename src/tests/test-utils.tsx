@@ -1,4 +1,3 @@
-// src/tests/test-utils.tsx
 import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render } from "@testing-library/react";
@@ -8,7 +7,7 @@ export const createTestQueryClient = () =>
   new QueryClient({
     defaultOptions: {
       queries: {
-        retry: false, // Desactiva reintentos para simplificar las pruebas
+        retry: false,
       },
     },
   });

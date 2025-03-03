@@ -1,6 +1,5 @@
-// __tests__/Header.test.tsx
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import {  screen, fireEvent, waitFor } from "@testing-library/react";
 import { renderWithProviders } from "./test-utils";
 import { Header } from "@/components/Header";
 
