@@ -7,7 +7,7 @@ import { fetchProductById } from "@/services/apiService";
 import { useGlobalState } from "@/context/GlobalContext";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { ArrowLeft, Facebook, Heart, Instagram, Share, ShoppingCart, Star, Twitch, X } from "lucide-react";
+import { ArrowLeft, Facebook, Heart, Instagram, Share, ShoppingCart, Star, Twitch } from "lucide-react";
 import Link from "next/link";
 import HeaderWrapper from "@/components/HeaderWrapper";
 import { Footer } from "@/components/Footer";

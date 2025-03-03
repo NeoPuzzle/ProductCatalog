@@ -20,6 +20,8 @@ export function Newsletter() {
       setEmail("");
     } catch (error) {
       setStatus("error");
+      console.log("Error en la suscripcion", error);
+      
     }
   }, [email]);
 
