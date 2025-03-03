@@ -8,15 +8,15 @@ export default function SearchPage() {
   const searchQuery =
     typeof router.query.query === "string" ? router.query.query : "";
 
-  if (!searchQuery) {
-    return <p>Por favor, ingresa un término de búsqueda.</p>;
-  }
-
   const {
     data: products = [],
     isLoading,
     error,
   } = useSearchProducts(searchQuery as string);
+
+  if (!searchQuery) {
+    return <p>Por favor, ingresa un término de búsqueda.</p>;
+  }
 
   if (isLoading) return <p>Cargando resultados...</p>;
   if (error)
@@ -30,13 +30,13 @@ export default function SearchPage() {
     );
 
   if (products.length === 0) {
-    return <p>No se encontraron resultados para "{searchQuery}".</p>;
+    return <p>No se encontraron resultados para &quot;{searchQuery}&quot;.</p>;
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-4">
-        Resultados para "{searchQuery}"
+        Resultados para &quot;{searchQuery}&quot;
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product: Product) => (
