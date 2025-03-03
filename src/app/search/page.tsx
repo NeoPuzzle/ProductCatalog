@@ -1,4 +1,4 @@
-"use client"; // Asegúrate de marcar este componente como un Client Component
+"use client";
 
 import { useSearchParams } from "next/navigation";
 import { Product } from "@/types/product";
@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
-  const searchQuery = searchParams.get("query") || ""; // Obtén el parámetro "query"
+  const searchQuery = searchParams.get("query") || "";
 
   const {
     data: products = [],
