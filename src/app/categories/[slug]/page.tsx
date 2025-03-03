@@ -6,7 +6,6 @@ import HeaderWrapper from "@/components/HeaderWrapper";
 import { PageProps, Product } from "@/types/product";
 
 export default async function CategoryPage({ params }: PageProps) {
-
   const { slug } = params;
 
   try {
