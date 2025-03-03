@@ -6,7 +6,12 @@ import HeaderWrapper from "@/components/HeaderWrapper";
 import { PageProps, Product } from "@/types/product";
 
 export default async function CategoryPage({ params }: PageProps) {
-  const { slug } = params;
+  const resolvedParams = await params;
+ 
+  const { slug } = resolvedParams;
+  if (!slug) {
+    return notFound();
+  }
 
   try {
     const products = await fetchProductsByCategory(slug);
