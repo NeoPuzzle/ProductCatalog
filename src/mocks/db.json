@@ -1,4 +1,5 @@
-{ "categories":[
+{
+  "categories": [
     {
       "id": "1",
       "name": "Electrónica",
@@ -30,7 +31,7 @@
       "image": "/images/toys.jpg"
     }
   ],
- "products":[
+  "products": [
     {
       "id": "1",
       "name": "Laptop Gamer Pro X",
@@ -414,14 +415,14 @@
     },
     {
       "id": "24",
-      "name": "Audífonos Inalámbricos Noise Cancelling",
+      "name": "Audífonos JBL",
       "description": "Audífonos con cancelación de ruido activa para una experiencia inmersiva.",
       "price": 250,
       "category": "Electrónica",
       "brand": "SoundMax",
       "rating": 4.8,
       "stock": 40,
-      "images": ["/images/noise-cancelling-headphones.jpg"],
+      "images": ["/images/headphones-jbl.jpg"],
       "features": [
         "Cancelación de ruido activa",
         "Bluetooth 5.0",
@@ -464,14 +465,14 @@
     },
     {
       "id": "27",
-      "name": "Set de Bloques de Construcción Creativos",
+      "name": "Set de Bloques camiones reciclaje",
       "description": "Bloques de construcción para desarrollar creatividad en niños.",
       "price": 45,
       "category": "Juguetes",
       "brand": "BuildFun",
       "rating": 4.9,
       "stock": 80,
-      "images": ["/images/building-blocks.jpg"],
+      "images": ["/images/blocks-reciclaje.jpg"],
       "features": [
         "500 piezas",
         "Material no tóxico",
@@ -484,14 +485,14 @@
     },
     {
       "id": "28",
-      "name": "Mochila de Viaje Resistente al Agua",
+      "name": "Mochila Travel",
       "description": "Mochila espaciosa y duradera para aventuras y viajes largos.",
       "price": 85,
       "category": "Moda",
       "brand": "TravelMaster",
       "rating": 4.8,
       "stock": 45,
-      "images": ["/images/travel-backpack.jpg"],
+      "images": ["/images/backpack.jpg"],
       "features": [
         "Impermeable",
         "Bolsillos organizadores",
@@ -508,7 +509,7 @@
       "brand": "FitTime",
       "rating": 4.7,
       "stock": 30,
-      "images": ["/images/smartwatch.jpg"],
+      "images": ["/images/smartwatch-verde.jpg"],
       "features": [
         "GPS integrado",
         "Monitoreo de ritmo cardíaco",
@@ -528,7 +529,7 @@
       "brand": "DreamRest",
       "rating": 4.9,
       "stock": 20,
-      "images": ["/images/orthopedic-mattress.jpg"],
+      "images": ["/images/orthopedic-bead.jpg"],
       "features": ["Soporte ergonómico", "Espuma de memoria", "Hipoalergénico"],
       "specifications": {
         "Tamaño": "Queen",
@@ -544,7 +545,7 @@
       "brand": "TableFun",
       "rating": 4.8,
       "stock": 50,
-      "images": ["/images/board-game.jpg"],
+      "images": ["/images/table-game.jpg"],
       "features": [
         "De 2 a 6 jugadores",
         "Fácil de aprender",
@@ -564,7 +565,7 @@
       "brand": "KeyMaster",
       "rating": 4.7,
       "stock": 60,
-      "images": ["/images/mechanical-keyboard.jpg"],
+      "images": ["/images/led-keyboard.jpg"],
       "features": [
         "Iluminación RGB",
         "Switches mecánicos",
@@ -581,7 +582,7 @@
       "brand": "CookMaster",
       "rating": 4.8,
       "stock": 35,
-      "images": ["/images/air-fryer.jpg"],
+      "images": ["/images/air-fryer2.jpg"],
       "features": [
         "Pantalla táctil",
         "Capacidad de 5L",
@@ -598,7 +599,7 @@
       "brand": "MountainRide",
       "rating": 4.9,
       "stock": 15,
-      "images": ["/images/mountain-bike.jpg"],
+      "images": ["/images/bike2.jpg"],
       "features": ["Suspensión doble", "Frenos de disco", "21 velocidades"],
       "specifications": {
         "Material del marco": "Aluminio",
@@ -684,7 +685,7 @@
       "brand": "EleganceWear",
       "rating": 4.6,
       "stock": 65,
-      "images": ["/images/cotton-shirt.jpg"],
+      "images": ["/images/cotton-shirt-beige.jpg"],
       "features": ["Algodón 100%", "Corte slim fit", "Variedad de colores"],
       "specifications": { "Material": "Algodón", "Tallas disponibles": "S-XXL" }
     },
@@ -697,7 +698,7 @@
       "brand": "HeroToys",
       "rating": 4.8,
       "stock": 55,
-      "images": ["/images/action-figures.jpg"],
+      "images": ["/images/figures-choop.jpg"],
       "features": [
         "Figuras articuladas",
         "Material resistente",
@@ -707,14 +708,14 @@
     },
     {
       "id": "41",
-      "name": "Auriculares Inalámbricos Bluetooth",
+      "name": "Mouse Inalámbricos Bluetooth",
       "description": "Auriculares con cancelación de ruido y batería de larga duración.",
       "price": 120,
       "category": "Electrónica",
       "brand": "SoundTech",
       "rating": 4.7,
       "stock": 80,
-      "images": ["/images/wireless-headphones.jpg"],
+      "images": ["/images/wireless-mouse.jpg"],
       "features": ["Bluetooth 5.0", "Cancelación de ruido", "Carga rápida"],
       "specifications": {
         "Duración de batería": "30h",
@@ -723,14 +724,14 @@
     },
     {
       "id": "42",
-      "name": "Robot Aspiradora Inteligente",
+      "name": "Licuadora 6 Velocidades",
       "description": "Aspiradora robótica con mapeo inteligente y control por app.",
       "price": 300,
       "category": "Hogar",
       "brand": "CleanBot",
       "rating": 4.8,
       "stock": 25,
-      "images": ["/images/robot-vacuum.jpg"],
+      "images": ["/images/Mixer.jpg"],
       "features": [
         "Mapeo inteligente",
         "Control remoto",
@@ -873,7 +874,6 @@
       "specifications": { "Altura": "40 cm", "Material": "Vinilo" }
     }
   ],
-
 
   "newProducts": [
     {

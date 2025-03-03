@@ -71,6 +71,7 @@ export default function ProductModal({
         name: product.name,
         price: product.discountPrice || product.price,
         quantity: 1,
+        images: product.images,
         stock: product.stock
       });
     }
