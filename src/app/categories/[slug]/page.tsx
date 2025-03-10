@@ -3,18 +3,19 @@ import { fetchProductsByCategory } from "@/services/apiService";
 import { Footer } from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import HeaderWrapper from "@/components/HeaderWrapper";
-import {  Product } from "@/types/product";
+import { Product } from "@/types/product";
 
-type CategoryPageProps <T> = {
-  params: {
-    slug: string;
-  }
-};
+export default async function CategoryPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const resolvedParams = await params;
 
-export default async function CategoryPage({ params }: CategoryPageProps<{ slug: string }>) {
-  if (!params) return notFound();
+  if (!resolvedParams) return notFound();
 
-  const slug = params.slug;
+  const slug = resolvedParams.slug;
+
 
   try {
     const products = await fetchProductsByCategory(slug);
