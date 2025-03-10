@@ -8,7 +8,7 @@ import { PageProps, Product } from "@/types/product";
 export default async function CategoryPage({ params }: PageProps) {
   if (!params) return notFound();
 
-  const { slug } = params;
+  const slug = params.slug;
 
   try {
     const products = await fetchProductsByCategory(slug);
